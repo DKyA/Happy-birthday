@@ -1,3 +1,8 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc));
   background: linear-gradient(#fff, #ccc);
@@ -19,19 +24,7 @@ body {
 }
 
 .c-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  position: relative;
   background-color: white;
   border-radius: 4px;
   padding: 24px 16px;
@@ -61,6 +54,11 @@ body {
 }
 
 .c-wrapper__button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   background-color: #d0312d;
   color: white;
   border: none;
@@ -70,18 +68,37 @@ body {
   cursor: pointer;
   -webkit-box-shadow: 1px 2px 3px #999;
           box-shadow: 1px 2px 3px #999;
-  -webkit-transition: background-color .2s ease-in-out;
-  transition: background-color .2s ease-in-out;
+  -webkit-transition: background-color .2s ease-in-out, top 1s ease-in-out;
+  transition: background-color .2s ease-in-out, top 1s ease-in-out;
 }
 
 .c-wrapper__button:hover, .c-wrapper__button:focus {
   background-color: #bb2c28;
 }
 
+.c-wrapper__button--active {
+  top: 25%;
+}
+
 .c-wrapper__output {
   text-align: center;
   font-size: 1.1rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  opacity: 0;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  -webkit-transition: bottom 1s ease-in-out, opacity 1s ease-in-out;
+  transition: bottom 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.c-wrapper__output--active {
+  bottom: 10%;
+  opacity: 1;
 }
 
 .c-wrapper__output > p {

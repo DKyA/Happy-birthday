@@ -1,6 +1,8 @@
 
 const alphabet = "AhojElpřejivšcnšíktýmdaárz!. ,:-)/BCDFGHIJKLMNST"
 const res = "Ahoj Elo, přeji všechno nejlepší k Tvým devatenáctým narozeninám! :-)";
+const target = document.querySelector("#js_target");
+const result = document.querySelector("#js_output");
 const output = (() => {
     let res = [];
     for(let i = 0; i < 65; i++) {
@@ -21,7 +23,10 @@ confetti.setPower(25);
 confetti.setFade(false);
 confetti.destroyTarget(false);
 
-document.querySelector("#js_target").addEventListener("click", () => {
+target.addEventListener("click", () => {
+
+    target.classList.add("c-wrapper__button--active");
+    result.parentElement.classList.add("c-wrapper__output--active");
 
     function cycle(base) {
         let block = false;
@@ -34,7 +39,7 @@ document.querySelector("#js_target").addEventListener("click", () => {
             block = true;
         }
         let joined = splitted.join('')
-        document.querySelector("#js_output").innerHTML = joined;
+        result.innerHTML = joined;
 
         if (block) {
             setTimeout(() => {
@@ -42,7 +47,7 @@ document.querySelector("#js_target").addEventListener("click", () => {
             }, 50);
         }
         else {
-            document.querySelector("#js_output").style.wordBreak = "initial";
+            result.style.wordBreak = "initial";
         }
     }
     cycle(output);

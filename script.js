@@ -1,12 +1,12 @@
 
 const alphabet = "AhojElpřejivšcnšíktýmdaárz!. ,:-)/BCDFGHKLMNST"
-const res = "Ahoj Elo, přeji všechno nejlepší k Tvým devatenáctým narozeninám! :-)";
+const res = "Ahoj Elo, přeji Ti všechno nejlepší k Tvým devatenáctým narozeninám! :-)";
 const target = document.querySelector("#js_target");
 const result = document.querySelector("#js_output");
 let GLOBAL_BLOCK = false;
 const output = (() => {
     let res = [];
-    for(let i = 0; i < 65; i++) {
+    for(let i = 0; i < 68; i++) {
         res.push("_");
     }
     res = res.join('');
@@ -37,21 +37,35 @@ confetti.setCount(175);
 confetti.setSize(3);
 confetti.setPower(25);
 confetti.setFade(false);
-confetti.destroyTarget(false);
+confetti.destroyTarget(true);
 
 target.addEventListener("click", () => {
 
+    target.classList.add("c-wrapper__button--hiding");
+
+    setTimeout(() => {
+        target.children[0].innerHTML = "Všechno nejlepší!!!";
+        target.classList.remove("c-wrapper__button--hiding");
+        target.classList.add("c-wrapper__button--shown");
+
+    }, 300);
+
     const to = setTimeout(() => {
         info.block = true;
-    }, 9900);
+    }, 6000);
 
     setTimeout(() => {
         result.style.wordBreak = "initial";
-    }, 7000);
+    }, 4000);
+
+    setTimeout(() => {
+        result.parentElement.classList.add("c-wrapper__output--finish");
+    }, 6500);
 
     target.classList.add("c-wrapper__button--active");
     result.parentElement.classList.add("c-wrapper__output--active");
 
+    let i = 0;
     function cycle(base) {
         let block = false;
         let splitted = base.split('');
@@ -64,11 +78,10 @@ target.addEventListener("click", () => {
         }
         let joined = splitted.join('')
         result.innerHTML = joined;
-
-        if (block && !info.status) {
+        if (block && !info.status && i < 50) {
             setTimeout(() => {
                 cycle(joined);
-            }, 50);
+            }, 30);
         }
         else {
             clearTimeout(to);

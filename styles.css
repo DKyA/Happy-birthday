@@ -97,7 +97,7 @@ body {
 }
 
 .c-wrapper__output--active {
-  bottom: 10%;
+  bottom: 5%;
   opacity: 1;
 }
 

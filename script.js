@@ -1,6 +1,6 @@
 
-const alphabet = "AhojElpřejivšcnšíktýmdaárz!. ,:-)/BCDFGHKLMNST"
-const res = "Ahoj Elo, přeji Ti všechno nejlepší k Tvým devatenáctým narozeninám! :-)";
+const alphabet = "wertuiopasdfghjklycvbnm ,.-!¨()/HSELMIAO"
+const res = "Hi Silvia, wish you all the best for your birthday! Enjoy your trip to Sicily :)";
 const target = document.querySelector("#js_target");
 const result = document.querySelector("#js_output");
 let GLOBAL_BLOCK = false;
